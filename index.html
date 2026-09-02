@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha faculdade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow nutrition-brand"><span>Nutrição · organização acadêmica</span><img class="nutrition-symbol" src="simbolo-nutricao.png?v=3" alt="Símbolo de Nutrição com a palavra Nutrição, balança, cobra e folhas"></p>
+        <h1>2º semestre de Nutrição.</h1>
+      </div>
+    </header>
+
+    <section class="overview" aria-label="Resumo academico">
+      <article class="hero-card">
+        <p class="eyebrow">Semestre atual</p>
+        <h2>Foco da semana</h2>
+        <p id="weeklyFocus">Adicione uma tarefa para começar a organizar sua semana.</p>
+        <div class="progress-track"><span id="weeklyProgress"></span></div>
+        <small id="progressLabel">0 de 0 tarefas concluídas</small>
+      </article>
+      <div class="metrics">
+        <article><span>Materias</span><strong id="subjectCount">0/9</strong></article>
+        <article><span>Tarefas abertas</span><strong id="openTaskCount">0</strong></article>
+        <article><span>Proximas provas</span><strong id="examCount">0</strong></article>
+      </div>
+    </section>
+
+    <section class="schedule-section">
+      <div class="section-heading"><div><p class="eyebrow">Aulas fixas</p><h2>Horarios da faculdade</h2></div><span class="section-note">segunda a sexta</span></div>
+      <article class="panel schedule-panel">
+        <div class="schedule-day"><h3>Segunda-feira</h3><div class="class-row"><time>07:50 - 09:20</time><strong>Microbiologia básica</strong><span>Teórica</span></div><div class="class-row"><time>09:40 - 11:10</time><strong>Controle de qualidade de alimentos</strong><span>Teórica</span></div><div class="class-row"><time>11:10 - 12:40</time><strong>Bioquímica</strong><span>Teórica</span></div></div>
+        <div class="schedule-day"><h3>Terça-feira</h3><div class="class-row"><time>07:50 - 09:20</time><strong>Ética</strong><span>Teórica</span></div><div class="class-row"><time>09:40 - 11:10</time><strong>Sistemas do corpo humano</strong><span>Prática</span></div></div>
+        <div class="schedule-day"><h3>Quarta-feira</h3><div class="class-row"><time>07:50 - 09:20</time><strong>Sistemas alimentares</strong><span>Teórica</span></div><div class="class-row"><time>09:40 - 11:10</time><strong>Técnica dietética</strong><span>Teórica</span></div><div class="class-row"><time>11:10 - 12:40</time><strong>Parasitologia</strong><span>Teórica</span></div></div>
+        <div class="schedule-day"><h3>Quinta-feira</h3><div class="class-row"><time>07:50 - 09:20</time><strong>Educação alimentar e nutricional</strong><span>Teórica</span></div><div class="class-row"><time>09:40 - 11:55</time><strong>Técnica dietética</strong><span>Prática</span></div></div>
+        <div class="schedule-day"><h3>Sexta-feira</h3><div class="class-row"><time>07:50 - 11:10</time><strong>Sistemas do corpo humano</strong><span>Teórica</span></div><div class="class-row"><time>11:10 - 12:40</time><strong>Educação alimentar e nutricional</strong><span>Teórica</span></div></div>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading"><div><p class="eyebrow">Rotina</p><h2>O que precisa da sua atenção</h2></div></div>
+      <div class="columns">
+        <article class="panel">
+          <div class="panel-heading"><h3>Tarefas</h3><span id="taskTotal">0 itens</span></div>
+          <form id="taskForm" class="form-row">
+            <input id="taskInput" type="text" placeholder="Ex.: entregar trabalho" required>
+            <select id="taskSubject" aria-label="Materia da tarefa"><option value="Geral">Geral</option></select>
+            <input id="taskDate" type="date" aria-label="Data da atividade">
+            <button type="submit">Adicionar</button>
+          </form>
+          <ul id="taskList" class="item-list"></ul>
+        </article>
+
+        <article class="panel exams-panel">
+          <div class="panel-heading"><div><p class="eyebrow">Calendário</p><h3>Próximas provas</h3></div><span id="examSummary">datas importantes</span></div>
+          <form id="examForm" class="exam-form">
+            <input id="examInput" type="text" placeholder="Ex.: Prova de bioquímica" required>
+            <select id="examSubject" aria-label="Materia da prova"><option value="Geral">Geral</option></select>
+            <select id="examType" aria-label="Tipo da prova"><option value="P1">P1 - primeira prova</option><option value="P2">P2 - segunda prova</option></select>
+            <input id="examDate" type="date" required>
+            <button type="submit">Adicionar prova</button>
+          </form>
+          <ul id="examList" class="item-list"></ul>
+          <p id="emptyExams" class="empty-state">Cadastre as datas das suas provas para acompanhar os prazos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="study-section">
+      <div class="section-heading"><div><p class="eyebrow">Planejamento</p><h2>Agenda semanal de estudos</h2></div><span class="section-note">blocos recorrentes</span></div>
+      <article class="panel">
+        <form id="studyForm" class="study-form">
+          <input id="studySubject" type="text" placeholder="Materia" required>
+          <select id="studyDay" aria-label="Dia do estudo"><option value="Segunda-feira">Segunda-feira</option><option value="Terca-feira">Terca-feira</option><option value="Quarta-feira">Quarta-feira</option><option value="Quinta-feira">Quinta-feira</option><option value="Sexta-feira">Sexta-feira</option><option value="Sabado">Sabado</option><option value="Domingo">Domingo</option></select>
+          <button type="submit">Adicionar matéria</button>
+        </form>
+        <ul id="studyList" class="item-list"></ul>
+        <p id="emptyStudies" class="empty-state">Adicione os horarios em que voce quer estudar durante a semana.</p>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Bioquímica</h2></div><span id="biochemistryProgress" class="section-note">0 de 12 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Siga esta ordem para construir a base e avançar até o metabolismo.</p>
+        <ol id="biochemistryTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Microbiologia básica</h2></div><span id="microbiologyProgress" class="section-note">0 de 7 concluídos</span></div>
+      <article class="panel topics-panel">
+        <ol id="microbiologyTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Ética</h2></div><span id="ethicsProgress" class="section-note">0 de 10 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="ethicsTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Sistemas do corpo humano</h2></div><span id="bodySystemsProgress" class="section-note">0 de 8 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="bodySystemsTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Parasitologia</h2></div><span id="parasitologyProgress" class="section-note">0 de 9 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="parasitologyTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Educação alimentar e nutricional</h2></div><span id="nutritionEducationProgress" class="section-note">0 de 8 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="nutritionEducationTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Sistemas alimentares</h2></div><span id="foodSystemsProgress" class="section-note">0 de 4 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="foodSystemsTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Controle de qualidade de alimentos</h2></div><span id="foodQualityProgress" class="section-note">0 de 7 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="foodQualityTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading"><div><p class="eyebrow">Roteiro de estudos</p><h2>Técnica dietética</h2></div><span id="dieteticTechniqueProgress" class="section-note">0 de 8 concluídos</span></div>
+      <article class="panel topics-panel">
+        <p class="topics-intro">Temas de estudo e resultados de aprendizagem do plano de ensino.</p>
+        <ol id="dieteticTechniqueTopics" class="topics-list"></ol>
+      </article>
+    </section>
+
+    <section class="subjects-section">
+      <div class="section-heading"><div><p class="eyebrow">Semestre</p><h2>Suas matérias</h2></div></div>
+      <article class="panel subject-panel">
+        <form id="subjectForm" class="form-row">
+          <input id="subjectInput" type="text" placeholder="Ex.: Cálculo II" required>
+          <button type="submit">Adicionar matéria</button>
+        </form>
+        <div id="subjectList" class="subject-list"></div>
+        <p id="emptySubjects" class="empty-state">Cadastre suas 9 matérias para montar seu planejamento.</p>
+      </article>
+    </section>
+
+    <footer>Os dados desta pagina ficam separados e salvos localmente neste navegador.</footer>
+  </main>
+  <script src="script.js?v=4"></script>
+</body>
+</html>
